@@ -1,9 +1,11 @@
     Allure version: 2.4.1
     TestRail version: v6.2.3.1114 (API v2)
 
-Mapping is done by fullName field in allure-result.json. 
+Example script to update TestRail test results using generic allure-results: conversion7.PushToTestRailRun
 
 Example of allure-2-testrail mapping can be found in: /src/main/resources/testrail/mapping.json
+Mapping is done by fullName field from allure-result.json
+
 It's supposed your test framework will create this file (implementation using test listeners and interceptors for example).
 
 Example set of env vars:
