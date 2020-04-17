@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  <logger name="org.springframework" level="INFO" />
+  <logger name="org.apache.http" level="INFO" />
+  <logger name="org.eclipse.jetty" level="INFO" />
+  <logger name="io.restassured.internal" level="INFO" />
+  <logger name="jdk.event.security" level="INFO" />
+  <logger name="org.hibernate" level="INFO" />
+  <logger name="io.netty.util.internal" level="INFO" />
+
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>logs/test.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- hourly rollover -->
+      <fileNamePattern>logs/test-%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+      <!-- keep X files of history capped at Y total size -->
+      <maxHistory>10</maxHistory>
+      <totalSizeCap>150MB</totalSizeCap>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-dd-MMM HH:mm:ss.SSS} [%thread] %-5level %logger{80} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{dd-MMM HH:mm:ss.SSS} [%-5level] %logger{40} - %msg%n%rEx</pattern>
+    </encoder>
+    <immediateFlush>false</immediateFlush>
+  </appender>
+
+  <root level="INFO">
+    <appender-ref ref="CONSOLE" />
+    <appender-ref ref="FILE" />
+  </root>
+
+</configuration>

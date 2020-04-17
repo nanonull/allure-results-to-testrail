@@ -1,0 +1,10 @@
+{
+  "allureTestNamesToTestRailIds": {
+    "org.example.testNG.test2": [
+      160199
+    ],
+    "org.example.testNG.test1": [
+      47236
+    ]
+  }
+}
